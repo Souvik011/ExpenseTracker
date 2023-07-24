@@ -1,7 +1,10 @@
 import React, { Fragment, useRef, useState } from "react";
 import { Card, Form, Button } from "react-bootstrap";
+import { useDispatch } from "react-redux";
+import { AuthAction } from "../store/AuthSlice";
 
 const Auth = (props) => {
+  const Dispatch = useDispatch();
   const [signup, setSignup] = useState(true);
   const [match, setMatch] = useState(true);
   const [forgotPass, setForgotPass] = useState(false);
@@ -68,6 +71,8 @@ const Auth = (props) => {
         })
         .then((data) => {
           console.log(data.idToken);
+          localStorage.setItem("idtoken",data.idToken);
+          Dispatch(AuthAction.login({email:enteredEmail,idToken:data.idToken}));
         })
         .catch((err) => {
           alert(err.message);
