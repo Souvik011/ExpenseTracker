@@ -6,6 +6,7 @@ import { useDispatch, useSelector } from "react-redux";
 
 const ExpenseForm = (props) => {
     const [theme,setTheme] = useState(classes.content);
+    const [addedItem,setAddedItem] = useState(null);
     const isPremium = useSelector((state)=>state.expense.Premium);
     const dateRef = useRef();
     const moneyRef = useRef();
@@ -27,7 +28,7 @@ const ExpenseForm = (props) => {
                 description:descRef.current.value,
                 category: categoryRef.current.value
             };
-            console.group(Obj);
+            setAddedItem(Obj);
             Dispatch(addExpenseFetching(Obj,email));
         }
         
@@ -80,7 +81,10 @@ const ExpenseForm = (props) => {
             </Form.Group>
             <Button type="submit" variant="success">Add Expense</Button>
         </Form>
-        
+        {addedItem && (<div style={{display:"grid",justifyContent:"center",marginTop:"2rem"}}>
+            <p style={{color:"palegreen"}}>New Item Added  </p>
+            <p style={{color:"peachpuff"}}>Date  : {addedItem.date}   ,   Description : {addedItem.description}   ,   Category : {addedItem.category}   ,   MoneySpent : {addedItem.money }</p>
+        </div>)}
     </Fragment>);
 };
 

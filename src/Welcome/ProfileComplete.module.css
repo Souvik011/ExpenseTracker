@@ -1,0 +1,33 @@
+.IncompleteProfile {
+    margin: 10rem auto;
+    margin-bottom: 2rem;
+    width: 95%;
+    max-width: 25rem;
+    border-radius: 6px;
+    padding: 1rem;
+    text-align: center;
+    background-color: rgb(218, 120, 85);
+  }
+
+  .IncompleteProfile div {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .IncompleteProfile input {
+    margin: 4%;
+  }
+
+  .IncompleteProfile button {
+    display: inline-block;
+    border-radius: 2px;
+  }
+  .section {
+    border-bottom: 2px solid black;
+    display: flex;
+    text-align: left;
+    font-style: italic;
+    font-size: medium;
+    background-color: rgb(235, 205, 124);
+    color: orangered;
+}

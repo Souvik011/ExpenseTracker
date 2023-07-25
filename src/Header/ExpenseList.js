@@ -9,7 +9,7 @@ const ExpenseList = (props) => {
     const totalExpenseAmount = useSelector((state)=>state.expense.expenseAmount);
     const isPremium = useSelector((state)=>state.expense.Premium);
     const [edit,setEdit] = useState(null);
-    const [downloadExpense,setDownloadExpense] = useState(null);
+    const [downloadExpense,setDownloadExpense] = useState(true);
     
     const email = useSelector((state)=>state.auth.email).replace("@", "").replace(".", "");
     const Dispatch = useDispatch();
@@ -67,7 +67,7 @@ const ExpenseList = (props) => {
       
     const showExpense = <ul style={{maxHeight:"15rem",overflowY:"scroll"}} >
         {expense.map((expense) => (
-            <li key={expense.id} style={isPremium ?{backgroundColor:"blue",borderBottom:"2px solid red",marginBottom:"1rem",fontFamily:"cursive"}:{backgroundColor:"blueviolet",borderBottom:"1px solid black",marginBottom:"1rem"}}  >
+            <li key={expense.id} style={isPremium ?{backgroundColor:"blue",borderBottom:"2px solid red",marginBottom:"1rem",fontFamily:"cursive",borderRadius:"6%"}:{backgroundColor:"blueviolet",borderBottom:"1px solid black",marginBottom:"1rem"}}  >
                 <div style={{display:"inline-flex",justifyContent:"space-around",width:"100%"}}>
                 <div style={{fontSize:"large",color:"orange",fontWeight:"bold"}}>{expense.date}</div>
               <div style={{fontSize:"small",color:"yellow",fontWeight:"500" ,height:"3rem",width:"5rem",textAlign:"left",marginRight:"1rem"}}>{expense.description} </div>
